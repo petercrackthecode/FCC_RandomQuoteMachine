@@ -28,7 +28,14 @@ export class QuoteBox extends Component {
           <span>- {this.props.author}</span>
         </div>
         <div className='button-container'>
-          <Button id='tweet-quote' className='button' style={style}>Tweet</Button>
+
+          <a id='tweet-quote' href="https://twitter.com/intent/tweet">
+            <Button className='button' style={style}>
+              Tweet
+              <img className='twitter-icon' alt='twitter icon' src='../images/twitter.png'/>
+            </Button>
+          </a>
+
           <Button style={style} id='new-quote' className='button' onClick={this.props.onQuoteChange}>Get new quote</Button>
         </div>
       </div>
