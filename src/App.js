@@ -7,24 +7,32 @@ import {getRandomColor} from './functions/getRandomColor.js';
 // Boostrap
 import Button from 'react-bootstrap/Button';
 
-import {QuoteBox} from './Components/quote-box.js';
+import {QuoteBox} from './Components/QuoteBox.js';
 
 class App extends Component {
   state= {
-      backgroundColor: 'brown'
+    style: {
+      backgroundColor: 'brown',
+      transition: 'backgroundColor 1s',
+    },
   };
 
   handleColorChange= () => {
     this.setState({
-      backgroundColor: getRandomColor()
+      style: {
+        backgroundColor: getRandomColor(),
+        transition: 'backgroundColor 1s',
+      },
     });
+
+
   }
 
   render() {
     const backgroundColor= this.state.backgroundColor;
     return (
-      <div className="App" style={{backgroundColor: backgroundColor}}>
-        <QuoteBox onColorChange={this.handleColorChange}/>
+      <div id='app' className="App" style={this.state.style}>
+        <QuoteBox onQuoteChange={this.getNewQuote}/>
       </div>
     );
   }
