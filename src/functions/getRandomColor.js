@@ -1,10 +1,11 @@
 export const getRandomColor= () => {
-  'use strict';
   let letters= '0123456789ABCDEF';
   let color= '#';
 
-  for (let index= 0; index < 6; index++)  {
-    color+= letters[Math.floor(Math.random() * 16)];
+  while (color === '#' || color === '#FFFFFF') {
+    for (let index= 0; index < 6; index++)  {
+      color+= letters[Math.floor(Math.random() * 16)];
+    }
   }
 
   return color;
